@@ -1,0 +1,13 @@
+User-agent: *
+
+
+
+Allow: /images/
+
+Disallow: /js/
+
+Disallow: /css/
+
+Host: https://pryanyk.kiev.ua/
+
+Sitemap: https://pryanyk.kiev.ua/sitemap.xml 

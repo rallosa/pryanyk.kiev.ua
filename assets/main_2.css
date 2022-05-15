@@ -1,0 +1,521 @@
+/* 
+    Created on : 06.11.2017, 15:02:40
+    Author     : Rallo Sergey
+*/
+
+* { margin: 0; padding: 0; }
+
+body { 
+    font-family: Verdana; 
+    font-size: 20px; 
+    min-width: 300px; 
+    background-image: url(/assets/body.png);
+    background-repeat: repeat;
+}
+
+p { margin: 20px 0; text-align: justify; }
+
+ul { margin-left: 50px; }
+
+
+/* Якорь для ссылок меню */
+.anchor { margin-top: -66px; /* учитывает высоту верхнего меню */  position: absolute; }
+
+.content { padding: 0px 10px; }
+
+/* "Линия" */
+.line_block { }
+
+/* Информационная секция "Линии" */
+.line_block section {
+    /* border: 1px solid red;*/
+    max-width: 1200px;
+    margin: 0px auto 0px auto;
+    padding: 20px 10px 40px 10px; 
+    min-height: 50px;
+    min-width: 300px;
+    background-color: white;
+    background-image: none;
+}
+
+/* Линия с Верхним меню  */
+.line_block.line_block-header { }
+.line_block.line_block-header section {
+    background: #cf702c;
+    height: 154px;
+    width: 100%;  
+    background-image: url(/assets/header.png);
+    background-repeat: repeat-x;
+    background-position: center bottom;
+    padding: 0px;
+}    
+.line_block.line_block-header .logo_block {
+    background-image: url(/assets/logo_block.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    width: 223px;
+    height: 154px;    
+    position: absolute;
+}
+.line_block.line_block-header .logo_block img { margin-left: 10px; margin-top: 18px; }
+.line_block.line_block-header nav {
+    width: 100%;
+    background-image: url(/assets/nav.png);
+    background-repeat: repeat-x;
+    background-position: 230px top;
+    height: 80px;  
+    position: relative;
+}
+
+.line_block.line_block-header nav li.toggle { 
+    font-size: 46px; 
+    width: 60px; 
+    color: #ff2009;  
+    cursor: pointer;
+    display: block !important;
+}
+.line_block.line_block-header nav li.toggle:hover { color: white; }
+.line_block.line_block-header nav li.toggle::after { content: none; } 
+/*  */
+.line_block.line_block-header nav ul { 
+    padding: 5px 280px 10px 160px;
+    margin-left: 0px;
+    width: 100%;
+    z-index: 200;
+    position: absolute;
+}
+.line_block.line_block-header nav li {
+    float: left;
+    display: inline; /* Отображать как строчный элемент */
+    height: 66px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.line_block.line_block-header nav li a {
+    display: inline-block;
+    padding: 21px 12px;
+    color: #ff2009;
+    text-decoration: none;
+    transition: .5s ease-in-out;
+    font-size: 17px;
+}
+.line_block.line_block-header nav li::after {
+    content: " ";
+    border-right: 2px solid #cc3300;
+}
+.line_block.line_block-header nav li:last-child::after {
+    border: 0;
+}    
+.line_block.line_block-header nav li a:hover { color: white; } /* 2a772a */
+
+
+/* horizontal */ 
+/* vertical */
+.line_block.line_block-header nav ul li.menu-item.menu-item-vertical {
+    clear: both;
+    background-color: #FFC253;
+    height: auto;
+    text-align: center;
+    border-left: 1px #cc3300 solid;
+    border-right: 1px #cc3300 solid;
+    opacity: 0.9;
+    padding: 0 38px;
+    display: none;
+}
+.line_block.line_block-header nav ul.visible-vertical-menu li.menu-item.menu-item-vertical { display: block; }
+
+.line_block.line_block-header nav li.menu-item.menu-item-vertical:last-child {
+    padding-bottom: 4px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.line_block.line_block-header nav li.menu-item.menu-item-vertical::after {
+    border: 0;
+}
+
+/* !! С класом или first-child почему-то не работает  */
+#menu-item-vertical1-first { margin-top: -14px; border-top-right-radius: 20px;}
+#menu-item-vertical1-first a { border-top: 1px #cc3300 solid;  }
+
+.line_block.line_block-header nav li.menu-item.menu-item-vertical a {
+    padding: 6px 20px;
+    border-bottom: 1px #cc3300 solid;
+    width: 180px; 
+}
+.line_block.line_block-header nav li.menu-item.menu-item-vertical:last-child a {
+    border-bottom: none;    
+}
+
+.line_block.line_block-header nav .contacts {
+    color: #007f00;
+    padding: 12px 14px 2px 10px;    
+    font-size: 20px;   
+    position:absolute; 
+    right: 2px; 
+    z-index:300 
+}
+.line_block.line_block-header nav .contacts span { 
+    transition: 0.5s ease-in-out;
+    text-shadow: 1px 1px 2px #FFFFFF, -1px -1px 2px #FFFFFF, -1px 1px 2px #FFFFFF, 1px -1px 2px #FFFFFF;
+}
+.line_block.line_block-header nav .contacts a { color: #007f00; transition: 0.5s ease-in-out; }
+.line_block.line_block-header nav .contacts a:hover {
+    color: #FFFFFF;
+    text-decoration: none;    
+}
+.line_block.line_block-header nav .contacts a:hover span {
+    text-shadow: 1px 1px 2px #007f00, -1px -1px 2px #007f00, -1px 1px 2px #007f00, 1px -1px 2px #007f00;
+}
+
+.line_block.line_block-header nav div {
+    float: right;
+}
+
+.line_block.line_block-header nav div.info {
+    margin-top: -4px;
+    height: 44px;
+    padding-right: 10px;
+}    
+.line_block.line_block-header nav div.name {
+    font-family: Comic Sans MS;
+    font-size: 20px;
+}
+.line_block.line_block-header nav div.facebook {
+    clear: both;    
+}
+.line_block.line_block-header nav div.facebook a svg { border-radius: 4px; }
+.line_block.line_block-header nav div.facebook a:hover svg { 
+    background-color: white;
+    box-shadow: -2px -2px 2px #FFF;
+}
+
+.line_block.line_block-header nav div.phones {
+    height: 54px;    
+    border-left: 1px solid #FFFFFF;
+}
+.line_block.line_block-header nav div.phones div {
+    border-left: 1px solid #007f00;
+    padding-left: 10px;
+}
+.line_block.line_block-header nav div.phone_ico {
+    margin-top: 6px;
+    cursor: pointer;    
+    transition: .3s ease-in-out;
+    
+    display: none;
+}
+.line_block.line_block-header nav div.phone_ico svg path { transition: .3s ease-in-out; }
+.line_block.line_block-header nav div.phone_ico:hover svg path {
+    fill: #FFF;
+}
+
+
+.line_block.line_block-header nav ul {  }
+.line_block.line_block-menu nav li.logo a { padding: 2px 2px 3px 0px; }
+.line_block.line_block-menu nav li.telephones { float:right; margin: 0px 0px 8px 2px; font-size: 22px; text-align: right; }
+#phone_sign { cursor: pointer; padding: 10px; }
+#phone_title { cursor: pointer; padding: 10px; }
+#phone_quote { 
+    display: inline-block; 
+    font-size: 30px; 
+    line-height: 30px; 
+    margin: 0px 0px 0px 0px; 
+    cursor: pointer;    
+    padding: 10px 10px 10px 0px;
+    -moz-transform: rotate(270deg); /* Для Firefox */
+    -ms-transform: rotate(270deg); /* Для IE */
+    -webkit-transform: rotate(270deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(270deg); /* Для Opera */        
+    transform: rotate(270deg) translateX(0px); 
+}
+#phones { display:none; transition: .3s ease-in-out; background-color: rgba(255,255,255,0.92); padding: 10px 32px 10px 32px; }
+#phones a { display: block; padding: 2px 0px; }
+#phones #phone_main { display: none; }
+.line_block.line_block-menu nav li.telephones:hover #phones { display: block; }
+.line_block.line_block-menu nav li.telephones span {  }
+
+/* END Линия с Верхним меню  */
+
+.line_block .headline {
+    background-color: #821711;
+    border-radius: 20px;
+    width: 100%;
+    height: 40px;
+    margin: 50px 0px;
+}
+.line_block.line_block-houses .headline { background-color: #900000; }
+.line_block.line_block-gingerbread .headline { background-color: #863c17; }
+.line_block.line_block-homemade .headline { background-color: #cf702c; }
+.line_block.line_block-in-work .headline { background-color: #f57e00; }
+.line_block.line_block-master-class .headline  { background-color: #007f00; }
+
+.line_block.line_block-exhibitions .headline { background-color: #f57e00; }
+.line_block.line_block-delivery .headline { background-color: #cf702c; }
+.line_block.line_block-reviews .headline { background-color: #863c17; }
+
+.line_block .headline h3 {
+    font-size: 26px;
+    color: white;
+    padding: 3px 10px 0px 160px; 
+    font-style: italic;
+    font-family: Comic Sans MS;
+}
+.line_block .headline .ico {
+    background-image: url(/assets/headline.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    width: 100px;
+    height: 100px;        
+    position: absolute;
+    margin: -30px 0px 0px 40px;
+}
+.line_block.line_block-houses .headline .ico { background-position: left top; }
+.line_block.line_block-gingerbread .headline .ico { background-position: left -200px; }
+.line_block.line_block-homemade .headline .ico { background-position: left -400px; }
+.line_block.line_block-in-work .headline .ico { background-position: left -600px; }
+.line_block.line_block-master-class .headline .ico { background-position: left -800px; }
+.line_block.line_block-exhibitions .headline .ico { background-position: left -1000px; }
+.line_block.line_block-delivery .headline .ico { background-position: left -1200px; }
+.line_block.line_block-reviews .headline .ico { background-position: left -1400px; }
+
+
+.line_block.line_block-footer section { 
+    background-color: #FFC253; 
+    padding: 4px 10px 4px 10px;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+.line_block.line_block-footer h4 { 
+    font-size: 18px;
+    font-family: Comic Sans MS;
+    text-align: center;
+}
+
+        
+/* ------------------- */    
+.table { width: 99%; overflow: auto; }
+
+.line_block section table { width: 99%; margin-bottom: 30px; min-width: 700px; }
+.line_block section table th { background-color: #ffc400;  }
+.line_block section table tr:hover td { background-color: #f0f0f0; }
+.line_block section table td, .line_block section table th { border: 1px solid #48301e; padding: 2px 6px;  }    
+.line_block section table td:last-child { text-align: right; }    
+
+/* Линия 2-го типа  */
+.line_block.line_block-type-2 { background: #48301e; color: white; }
+
+
+.line_block.line_block-type-2 table td, .line_block.line_block-type-2 table th { border-color: #F0F0F0; }
+.line_block.line_block-type-2 table tr:hover { border-color: #F0F0F0; }
+.line_block.line_block-type-2 table tr:hover td  {  background-color: #6e4a2f; }
+
+.line_block.line_block-first section { margin-top: 65px;  /* учитывает высоту верхнего меню */ }    
+
+
+/*     */
+
+.block-double {
+    width: 480px;
+    padding: 10px 10px 10px 0px;  
+    display: inline-block;
+    text-align: center;
+}
+
+.block-double strong {
+    color: #00b200;
+    text-transform: uppercase;
+}
+
+.line_block.line_block-menu nav ul {
+    margin-bottom: 0px;
+}
+
+/* Вертикальное меню */
+.line_block.line_block-menu nav li.menu { width: 70px; }
+.line_block.line_block-menu nav li.menu > a { font-weight: bold; font-size: 60px; line-height: 60px; padding: 0px 12px; cursor: pointer; }
+
+.line_block.line_block-menu nav li.menu > ul {
+    height: 40px;
+    font-size: 15px;
+    width: 200px;
+    margin: 0px 0px 0px 0px;
+}
+.line_block.line_block-menu nav li.menu > ul li {
+    height: 40px;
+    width: 200px;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+}
+.line_block.line_block-menu nav li.menu > ul li a { 
+    width: 100%; 
+    background-color: rgba(255,255,255,0.92);
+    padding: 10px 16px;
+}
+
+.line_block.line_block-menu nav li.menu ul { display: none; z-index: 100; }
+.line_block.line_block-menu nav li.menu ul li {  }  
+
+/* END Вертикальное меню */
+
+
+.line_block.line_block-menu nav li.logo a img { transition: 0.5s ease-in-out; }
+
+
+.visible { visibility: visible !important; display: block !important; }
+
+
+
+
+/* Для слайдера типа Карусель */
+.carousel .item { background: #333; text-align: center; }
+.carousel .item .bannerImage img { width: 100%; }
+.bannerImage { background-size: cover; height: 100%; }
+.carousel-control .glyphicon-chevron-right::before { content: ""; }
+.carousel-control .glyphicon-chevron-left::before { content: ""; }
+
+.carousel-control .glyphicon {
+    border: 3px solid grey;
+    opacity: 0.95;
+    /*background-color: black; */
+    background-image: linear-gradient(to right,rgba(0,0,0,.1) 0,rgba(0,0,0,.9) 100%);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: .3s ease-in-out;
+}
+.carousel-control a:hover .glyphicon { opacity: 1; }
+.carousel-control .glyphicon span {
+    display: block;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent; 
+}
+.carousel-control .glyphicon-chevron-left span { 
+    border-right: 16px solid white; 
+    margin: 10px 11px 0px 0px; 
+}
+.carousel-control .glyphicon-chevron-right span { 
+    border-left: 16px solid white; 
+    margin: 10px 0px 0px 11px; 
+}
+
+.carousel-indicators { background: rgba(0,0,0,0.2); }
+
+
+.galleries .carousel { position: fixed;  } 
+.galleries .modal-dialog { width: 100%; max-width: 1200px; margin: 10% auto 0 auto;}
+
+/* END Для слайдера типа Карусель */
+
+#map {  height: 360px; }
+
+/*  */
+
+#site_in_message {
+
+	margin: 23% 0% 0 0;
+	padding: 40px;
+	border: 3px dotted grey;
+	border-radius: 20px;
+	text-align: center;
+	font-size: 40px;
+	
+}
+
+.columns { text-align: center; }
+.column { display:inline-block; vertical-align: top; padding: 2%; min-width: 280px; }
+.column img { width: 100%; }    
+.column a  { transition: 0.5s ease-in-out; }
+.column a img { 
+    outline-color: #555; 
+    outline-style: outset; 
+    outline-width: 1%;
+    outline-offset: -1%;;   
+    
+/*    border-width: 6px; 
+    border-style: dotted; 
+    border-color: #FFFFFF;*/
+    
+    transition: 0.5s ease-in-out;    
+}
+.column a:hover img {
+    opacity: 0.8;
+    outline-style: inset;    
+}    
+.column a.lightbox-small { display: block; position: relative; }
+.column a.lightbox-small::before {
+    border: 0px solid red;
+    position: absolute;
+    display: block;
+    content: "\1F50D";
+    background: transparent;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    font-size: 300%;
+    vertical-align: central;
+    color: #000;
+    padding-top: 12%;
+}
+.column a.lightbox-small:hover::before {
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.1);
+}    
+.column_2 { width: 48%;  }
+.column_3 { width: 32%;  }
+.column ul li { text-align: left; }
+
+
+
+
+
+@media (max-width:640px) {
+    .line_block.line_block-menu nav li.logo a img { width: 200px; margin-top: 6px; }    
+}
+
+@media (max-width:602px) {
+    .column_2, .column_3 { width: 96%; }
+}
+
+@media (max-width:570px) {
+    .line_block section { padding-left: 6px; padding-right: 6px; } 
+    #phone_title { display: none; }
+    #phones #phone_main { display: block; }
+    #phones { position: absolute; right: 0px; }
+    
+}
+
+@media (max-width:510px) {
+    .line_block.line_block-header nav ul.visible-vertical-menu li.menu-item.menu-item-vertical { margin-left: -156px; }    
+    .contacts .name { display:none; }
+    .line_block.line_block-header nav div.phones { border-left: none; }
+    .line_block.line_block-header nav div.phones div.phone_ico { display: block; border-left: none; }
+    .line_block.line_block-header nav div.phones div.phone_number { 
+        clear: both;
+        background-color: #FFC253;
+        border-left: 1px #cc3300 solid;
+        border-right: 1px #cc3300 solid;        
+        opacity: 0.9;
+        padding: 6px 10px 10px 10px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-top-left-radius: 20px;
+        position: absolute;
+        margin: 50px 4px 0px -120px;   
+        display: none;
+    }
+    .line_block.line_block-header nav div.phones div.phone_number.view { display: block; }
+    .line_block.line_block-header nav div.facebook { margin-top: 21px; }    
+    .line_block.line_block-header nav ul { padding-left: 140px; }
+    .line_block.line_block-header nav div.info { padding-right: 0px; }    
+}    
+@media (max-width:370px) {
+  
+}
+
+
+
+

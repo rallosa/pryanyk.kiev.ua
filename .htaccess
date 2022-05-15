@@ -1,0 +1,13 @@
+
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} ^pryanyk.d-fit.pro$ [NC]
+RewriteRule ^(.*)$ https://pryanyk.kiev.ua%{REQUEST_URI} [R=301,NC,L,QSA]
+
+
+DirectoryIndex index.html
+
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

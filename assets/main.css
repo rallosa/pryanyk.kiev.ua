@@ -1,0 +1,490 @@
+/* 
+    Created on : 12.02.2018, 15:02:40
+    Author     : Rallo Sergey
+*/
+
+/* * * *  Общие Стили * * * */
+* { margin: 0; padding: 0; }
+body { 
+    font-family: Verdana; 
+    font-size: 20px; 
+    min-width: 310px; 
+    background-image: url(/assets/body.png);
+    background-repeat: repeat;
+}
+p { margin: 20px 0; text-align: justify; }
+ul { /*margin-left: 50px;*/ }
+ul > li, ol >li { margin-left: 50px; }
+.columns ul > li, .columns ol > li { text-align: left; }
+
+/* Якорь для ссылок меню */
+.anchor { margin-top: -66px; /* учитывает высоту верхнего меню */  position: absolute; }
+
+.content { padding: 0px 10px; }
+
+/* "Линия" */
+.line_block { }
+
+/* Информационная секция "Линии" */
+.line_block section {
+    /* border: 1px solid red;*/
+    max-width: 1200px;
+    margin: 0px auto 0px auto;
+    padding: 20px 10px 40px 10px; 
+    min-height: 50px;
+    min-width: 300px;
+    background-color: white;
+    background-image: none;
+}
+
+/*  */
+
+.columns { text-align: center; }
+.column { display:inline-block; vertical-align: top; padding: 2%; min-width: 280px; }
+.column img { width: 100%; }    
+.column a  { transition: 0.5s ease-in-out; }
+.column a img { 
+    outline-color: #555; 
+    outline-style: outset; 
+    outline-width: 1%;
+    outline-offset: -1%;;   
+    
+/*    border-width: 6px; 
+    border-style: dotted; 
+    border-color: #FFFFFF;*/
+    
+    transition: 0.5s ease-in-out;    
+}
+.column a:hover img {
+    opacity: 0.8;
+    outline-style: inset;    
+}    
+.column a.lightbox-small { display: block; position: relative; }
+.column a.lightbox-small::before {
+    border: 0px solid red;
+    position: absolute;
+    display: block;
+    content: "\1F50D";
+    background: transparent;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    font-size: 300%;
+    vertical-align: central;
+    color: #000;
+    padding-top: 18%;
+}
+.column a.lightbox-small:hover::before {
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.1);
+}    
+.column_2 { width: 48%;  }
+.column_3 { width: 32%;  }
+.column ul li { text-align: left; }
+
+.table { width: 99%; overflow: auto; }
+
+.line_block section table { width: 99%; margin-bottom: 30px; min-width: 700px; }
+.line_block section table th { background-color: #ffc400;  }
+.line_block section table tr:hover td { background-color: #f0f0f0; }
+.line_block section table td, .line_block section table th { border: 1px solid #48301e; padding: 2px 6px;  }    
+.line_block section table td:last-child { text-align: right; }    
+
+/* Линия 2-го типа  */
+.line_block.line_block-type-2 { background: #48301e; color: white; }
+.line_block.line_block-type-2 table td, .line_block.line_block-type-2 table th { border-color: #F0F0F0; }
+.line_block.line_block-type-2 table tr:hover { border-color: #F0F0F0; }
+.line_block.line_block-type-2 table tr:hover td  {  background-color: #6e4a2f; }
+
+.line_block.line_block-first section { margin-top: 65px;  /* учитывает высоту верхнего меню */ } 
+
+.block { display: block !important; }
+
+/* * * * END Общие Стили * * * */
+
+
+/* Линия с Верхним меню  */
+.line_block.line_block-header { }
+.line_block.line_block-header section {
+    background: #cf702c;
+    height: 154px;
+    width: 100%;  
+    padding: 0px;
+}
+.line_block.line_block-header section .header { width: 100%; height: 100%; }
+.line_block.line_block-header section .header-b {
+    background-image: url(/assets/header-b.png);
+    background-repeat: repeat-x;
+    background-position: center bottom;
+}
+.line_block.line_block-header section .header-t {
+    background-image: url(/assets/header-t.png);
+    background-repeat: repeat-x;
+    background-position: 230px top;
+}
+.line_block.line_block-header section .header-l {
+    background-image: url(/assets/header-l.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    padding-top: 16px;
+}
+
+/* ---------- Меню - Навигация ---------- */
+nav {
+    width: 100%;
+    height: 50px; 
+    background-color: #ffc253;
+    outline: 0px solid red;
+    max-width: 1200px;
+    z-index: 1000;
+    position: fixed;
+    transition: .5s ease-in-out;
+    top: auto;
+    opacity: 0.95;
+}
+/* Строка  меню-навигации  при прокрутке ниже */
+nav.thin { top: 0px; height: 52px; }
+    
+nav #logo {
+    position: absolute;
+    float: left;
+    left: 0px;
+}
+/* ----- Меню ----- */
+ul#menu { margin: 0 0px 0 130px; }
+ul#menu li {
+    float: left;
+    display: inline; /* Отображать как строчный элемент */
+    height: 44px;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-left: 0px;
+}
+ul#menu li a {
+    display: inline-block;
+    padding: 11px 12px ;
+    color: #900000;
+    text-decoration: none;
+    transition: .2s ease-in-out;
+    font-size: 17px;
+    white-space : nowrap;
+}
+ul#menu li::after {
+    content: " ";
+    border-right: 2px solid #cc3300;
+}
+ul#menu li:last-child::after {
+    border: 0;
+}    
+ul#menu li a:hover { color: white; } /* 2a772a */
+
+/* Переключатель вертикального меню */
+ul#menu li.toggle { 
+    color: #ff2009;  
+    cursor: pointer;
+    display: block;
+    float: left;
+    margin: 5px 30px 0px 10px;
+}
+ul#menu li.toggle:hover path { fill: white; }
+ul#menu li.toggle::after { content: ''; border-right: none; }
+
+/* vertical menu */
+ul#menu li.menu-item-vertical {
+    clear: both;
+    background-color: #FFC253;
+    height: auto;
+    text-align: center;
+    border-left: 1px #cc3300 solid;
+    border-right: 1px #cc3300 solid;
+    opacity: 0.95;
+    display: none;
+    visibility: hidden;
+    z-index: 0;
+    padding: 0px 20px;
+}
+ul#menu li.menu-item-vertical a { padding: 6px 38px; width: 220px; }    
+ul#menu.visible-vertical-menu li.menu-item-vertical { display: block; visibility: visible; }
+ul#menu li.menu-item-vertical:last-child {
+    padding-bottom: 4px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+ul#menu li.menu-item-vertical::after { border: 0; }
+ul#menu li.menu-item-vertical a { padding: 6px 20px; border-bottom: 1px #cc3300 solid; }
+ul#menu li.menu-item-vertical:last-child a { border-bottom: none; }
+/* ----- END Меню ----- */
+
+/* ----- Блок info навигации  ----- */
+nav #info {
+    color: #007f00;
+    padding-right: 16px;    
+    font-size: 20px;   
+    position:absolute; 
+    right: 2px; 
+    z-index:300; 
+    height: 60px;
+    float: right;        
+}
+nav #info a { 
+    color: #007f00; 
+    transition: 0.5s ease-in-out;
+    font-size: 17px;
+    font-weight: bold;
+    transition: 0.5s ease-in-out;
+    text-shadow: 1px 1px 2px #FFFFFF, -1px -1px 2px #FFFFFF, -1px 1px 2px #FFFFFF, 1px -1px 2px #FFFFFF;
+}
+nav #info a:hover {
+    color: #FFFFFF;
+    text-decoration: none;  
+}
+nav #info a:hover span {
+    text-shadow: 1px 1px 2px #007f00, -1px -1px 2px #007f00, -1px 1px 2px #007f00, 1px -1px 2px #007f00;
+}
+
+
+nav #info div.name {
+    font-family: Comic Sans MS;
+    font-size: 22px;
+    float: right;
+    color: #007f00; 
+    transition: 0.5s ease-in-out;
+    text-shadow: 1px 1px 2px #FFFFFF, -1px -1px 2px #FFFFFF, -1px 1px 2px #FFFFFF, 1px -1px 2px #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    font-style: italic;
+}
+nav #info div.name div {
+    padding: 8px 10px 10px 10px;
+    border-right: 1px solid #007f00;
+}
+
+nav #info #facebook {
+    float: right;
+    margin: 5px 4px 0px 4px; 
+}
+nav #info #facebook a svg { border-radius: 4px; transition: .4s ease-in-out; }
+nav #info #facebook:hover svg { 
+    background-color: white;
+    box-shadow: -2px -2px 2px #FFF;
+}
+
+nav #info div.phones {
+    float: right;
+    padding-left: 10px;
+}
+nav #info div.phones a { display: block; padding: 0px 0px 0px 24px; }
+
+nav #info div.phones svg { position: absolute; margin: 5px 0px 0px -24px; }
+
+
+
+nav #info svg.phone_ico {
+    margin-top: 1px;
+    margin-left: 8px;
+    cursor: pointer;    
+    transition: .3s ease-in-out;
+    float: right;
+    display: none;
+}
+nav #info svg.phone_ico path { transition: .3s ease-in-out; }
+nav #info svg.phone_ico:hover  path {
+    fill: #FFF;
+}
+/* ----- END Блок info навигации  ----- */
+
+/* END Линия с Верхним меню  */
+
+.line_block .headline {
+    background-color: #821711;
+    border-radius: 20px;
+    width: 100%;
+    height: 40px;
+    margin: 50px 0px;
+}
+.line_block.line_block-houses .headline { background-color: #900000; }
+.line_block.line_block-gingerbread .headline { background-color: #863c17; }
+.line_block.line_block-homemade .headline { background-color: #cf702c; }
+.line_block.line_block-in-work .headline { background-color: #f57e00; }
+.line_block.line_block-master-class .headline  { background-color: #007f00; }
+
+.line_block.line_block-exhibitions .headline { background-color: #f57e00; }
+.line_block.line_block-delivery .headline { background-color: #cf702c; }
+.line_block.line_block-reviews .headline { background-color: #863c17; }
+.line_block.line_block-individual .headline { background-color: #863c17; }
+
+.line_block .headline h3 {
+    font-size: 26px;
+    color: white;
+    padding: 3px 10px 0px 160px; 
+    font-style: italic;
+    font-family: Comic Sans MS;
+}
+.line_block .headline .ico {
+    background-image: url(/assets/headline.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    width: 100px;
+    height: 100px;        
+    position: absolute;
+    margin: -30px 0px 0px 40px;
+}
+.line_block.line_block-houses .headline .ico { background-position: left top; }
+.line_block.line_block-gingerbread .headline .ico { background-position: left -110px; }
+.line_block.line_block-homemade .headline .ico { background-position: left -220px; }
+.line_block.line_block-in-work .headline .ico { background-position: left -330px; }
+.line_block.line_block-master-class .headline .ico { background-position: left -440px; }
+.line_block.line_block-exhibitions .headline .ico { background-position: left -550px; }
+.line_block.line_block-delivery .headline .ico { background-position: left -660px; }
+.line_block.line_block-reviews .headline .ico { background-position: left -770px; }
+.line_block.line_block-individual .headline .ico { background-position: left -880px; }
+
+
+.line_block.line_block-footer section { 
+    background-color: #FFC253; 
+    padding: 4px 10px 4px 10px;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+.line_block.line_block-footer h4 { 
+    font-size: 18px;
+    font-family: Comic Sans MS;
+    text-align: center;
+}
+
+
+.prices { font-family: Comic Sans MS; font-size: 22px; }
+p.prices {  text-align: center; }
+h4.prices { text-decoration: underline; }
+
+/* ------------------- */    
+   
+
+
+
+
+/* Вертикальное меню */
+.line_block.line_block-menu nav li.menu { width: 70px; }
+.line_block.line_block-menu nav li.menu > a { font-weight: bold; font-size: 60px; line-height: 60px; padding: 0px 12px; cursor: pointer; }
+
+.line_block.line_block-menu nav li.menu > ul {
+    height: 40px;
+    font-size: 15px;
+    width: 200px;
+    margin: 0px 0px 0px 0px;
+}
+.line_block.line_block-menu nav li.menu > ul li {
+    height: 40px;
+    width: 200px;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    margin-left: 0;
+}
+.line_block.line_block-menu nav li.menu > ul li a { 
+    width: 100%; 
+    background-color: rgba(255,255,255,0.92);
+    padding: 10px 16px;
+}
+
+.line_block.line_block-menu nav li.menu ul { display: none; z-index: 100; }
+.line_block.line_block-menu nav li.menu ul li {  }  
+
+/* END Вертикальное меню */
+
+
+
+/* ----------- Для слайдера типа Карусель ----------- */
+.carousel .item { background: #333; text-align: center; }
+.carousel .item .bannerImage img { width: 100%; }
+.bannerImage { background-size: cover; height: 100%; }
+.carousel-control .glyphicon-chevron-right::before { content: ""; }
+.carousel-control .glyphicon-chevron-left::before { content: ""; }
+
+.carousel-control .glyphicon {
+    border: 3px solid grey;
+    opacity: 0.95;
+    /*background-color: black; */
+    background-image: linear-gradient(to right,rgba(0,0,0,.1) 0,rgba(0,0,0,.9) 100%);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: .3s ease-in-out;
+}
+.carousel-control a:hover .glyphicon { opacity: 1; }
+.carousel-control .glyphicon span {
+    display: block;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent; 
+}
+.carousel-control .glyphicon-chevron-left span { 
+    border-right: 16px solid white; 
+    margin: 10px 11px 0px 0px; 
+}
+.carousel-control .glyphicon-chevron-right span { 
+    border-left: 16px solid white; 
+    margin: 10px 0px 0px 11px; 
+}
+
+.carousel-indicators { background: rgba(0,0,0,0.2); }
+
+
+.galleries .carousel { position: fixed;  } 
+.galleries .modal-dialog { width: 100%; max-width: 1200px; margin: 10% auto 0 auto;}
+
+/* ----------- END Для слайдера типа Карусель ----------- */
+
+
+
+@media (max-width:700px) {
+    .column_2, .column_3 { width: 96%; }
+}
+
+
+@media (max-width:602px) {
+    nav div.name { display: none; }
+    .column_2, .column_3 { width: 96%; }
+}
+
+@media (max-width:580px) {
+    ul#menu { float:left; }
+    nav #info { position: absolute; }
+}
+
+@media (max-width:560px) {
+    .line_block section { padding-left: 6px; padding-right: 6px; } 
+    nav #info svg.phone_ico { display: block; border-left: none; }
+    nav #info div.phones.view { display: block; }
+    nav #info div.phones { 
+        display: none; 
+        clear: both;
+        background-color: #FFC253;
+        border-left: 1px #cc3300 solid;
+        border-right: 1px #cc3300 solid;        
+        opacity: 0.9;
+        padding: 6px 10px 10px 10px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-top-left-radius: 20px;
+        position: absolute;
+        margin: 50px 4px 0px -150px;
+        width: 260px;
+    }
+    nav #info div.phones div { border-left: none; }
+    nav #info a { font-size: 22px; }
+    ul#menu { margin-left: 120px; }
+    nav #info div.phones svg { margin-top: 9px; }
+}
+
+@media (max-width:530px) {
+    ul#menu.visible-vertical-menu li.menu-item-vertical { margin-left: -110px; }    
+}    
+@media (max-width:370px) {
+    nav.thin #logo img { width: 60px; margin-left: 4px; }
+}
+
+
+
+
